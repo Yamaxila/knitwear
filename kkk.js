@@ -5,6 +5,8 @@ let middle = [];
 let middle2 = [];
 let head = [];
 
+let middleLen, headLen, footerLen, footersLen;
+
 function setup() {
     w = 1920*2;
     h = 1080*3;
@@ -47,12 +49,16 @@ function partsCount() {
     addFooter(0, 0, 0);
     addFooter2(0, 0, 0);
 
+    headLen = calculateDots(head, 1);
+    middleLen = calculateDots(middle, 1);
+    footerLen = calculateDots(footer, 1);
+    footersLen= calculateDots(footers, 1);
 
     console.log("Points count(starts count): ")
-    console.log("\t- head: " + head.length + "(" + 1 + ")");
-    console.log("\t- middle: " + middle.length + "(" + 2 + ")");
-    console.log("\t- footer: " + footer.length);
-    console.log("\t- footer2: " + footers.length);
+    console.log("\t- head: " + head.length + "(" + headLen + ")");
+    console.log("\t- middle: " + middle.length + "(" + middleLen + ")");
+    console.log("\t- footer: " + footer.length + "(" + footerLen + ")");
+    console.log("\t- footer2: " + footers.length + "(" + footersLen + ")");
 
     head = [];
     middle = [];
