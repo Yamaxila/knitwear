@@ -6,15 +6,14 @@ let middle2 = [];
 let head = [];
 
 function setup() {
-    w = 1920*3;
+    w = 1920*2;
     h = 1080*3;
     let sx = w;
     let sy = h+30;
     let lastSx = sx;
-    let fx = 0;
-    let fy = 40;
+
     createCanvas(w, h);
-    let tempBool = false;
+
 
 
     console.log("-------------------------------------------")
@@ -24,22 +23,12 @@ function setup() {
     partsCount();
 
 
-    // console.log("Height: " + h);
-
-    // addHead(100, 170, 0);
     for (let y = 0; y < 90; y++) {
         for (let i = 0; i < 40; i++) {
             addMiddle(sx, sy, 0, true, middle);
-            // if(tempBool)
             sx -= 90;
         }
         lastSx = sx;
-        // sx = w-65;
-        // for (let i = 0; i < 20; i++) {
-        //     addMiddle(sx, sy, 0, true, middle2);
-        //     sx -= 120;
-        //     // tempBool = !tempBool;
-        // }
         sy -= 40;
         sx = w;
     }
@@ -48,41 +37,6 @@ function setup() {
     console.log("Computed last sx pos: " + (90*40))
 
     console.log("-------------------------------------------")
-
-    // for (let i = 0; i < 90; i++) {
-    //     for (let y = 0; y < 50; y++) {
-    //         // addFooter(fx, fy, 0);
-    //         fx += 240;
-    //     }
-    //
-    //     switch (tempBool) {
-    //         case 0:
-    //             fx = -0;
-    //             break;
-    //         case 1:
-    //             fx = -60;
-    //             break;
-    //         case 2:
-    //             fx = -120;
-    //             break;
-    //         case 3:
-    //             fx = -180;
-    //             break;
-    //
-    //         default:
-    //             fx = -240;
-    //             tempBool = 0;
-    //             break;
-    //     }
-    //
-    //     fy += 50;
-    //
-    //     tempBool++;
-    //
-    // }
-
-    // addFooter(0, 190, 0);
-    // addFooter(240, 190, 0);
 
 }
 
@@ -119,7 +73,6 @@ function draw() {
     let m = 1278; // 4
     let m2 = (m * 2) + (m/2)
 
-    let h = 99;
 
     let colors = [
         {
@@ -223,34 +176,7 @@ function draw() {
 
 
 
-    // for(let i = 0; i < footer.length; i++) {
-    //     if(footer[i].start) {
-    //         beginShape();
-    //         if(footer[i].opacity === 0)
-    //             stroke(0);
-    //         else
-    //             stroke("#ff0000");
-    //
-    //     }
-    //     strokeWeight(5);
-    //     // point(footer[i].xPos, footer[i].yPos);
-    //
-    //     strokeWeight(13);
-    //
-    //     // if(!dotArray[i].start && !dotArray[i].end) {
-    //     //     currLen += Math.sqrt((Math.pow(dotArray[i-1].xPos - dotArray[i].xPos, 2)) + Math.pow(dotArray[i-1].yPos - dotArray[i].yPos, 2));
-    //     // }
-    //
-    //     //strokeWeight(0.2 * sectors[currSector].tex*currentScale);
-    //     curveVertex(footer[i].xPos, footer[i].yPos, footer[i].zPos);
-    //
-    //     if(footer[i].end) {
-    //         endShape();
-    //
-    //
-    //     }
-    //
-    // }
+
 
     noLoop();
 }
@@ -258,20 +184,6 @@ function draw() {
 function drawArray(array= [], mode = 0, outline = false, colors = [{defaultColor: "#ffffff", lightenColor: "", darkerColor: ""}]) {
     let c = 0, n = 0, color = "#000000";
     let tex = 20;
-    // if(outline){
-    //     for(let i = 0; i < array.length; i++) {
-    //         if(array[i].start) {
-    //             beginShape();
-    //             stroke(0);
-    //         }
-    //         strokeWeight(tex + 3);
-    //         curveVertex(array[i].xPos + 2, array[i].yPos+5, array[i].zPos);
-    //         if(array[i].end) {
-    //             endShape();
-    //         }
-    //
-    //     }
-    // }
 
     for(let i = 0; i < array.length; i++) {
 
@@ -316,17 +228,12 @@ function drawArray(array= [], mode = 0, outline = false, colors = [{defaultColor
             } if(i > colors[c].max && c < colors.length-1)
                 c++;
 
-            // let color;
-
-
-
 
             stroke(color);
 
 
         }
 
-        // strokeWeight(tex);
         curveVertex(array[i].xPos, array[i].yPos, array[i].zPos);
 
         if(array[i].end) {
@@ -576,19 +483,6 @@ function addFooter(x0, y0, z) {
         end:true
     });
 
-
-    // footer.push({
-    //     xPos: -50 + x0,
-    //     yPos: 20 + y0,
-    //     zPos: z + 20,
-    //
-    // });
-    // footer.push({
-    //     xPos: -50 + x0,
-    //     yPos: 20 + y0,
-    //     zPos: z + 20,
-    //
-    // });
 }
 function addPlush (x0, y0, z) {
     y0 += 8;
@@ -768,52 +662,9 @@ let start = true;
 let end = false;
 
 function mouseClicked() {
-    //
-    // console.log(mouseButton)
-    //
-    //
-    //
-    // if(start) {
-    //     dotArray.push({
-    //         xPos: mouseX,
-    //         yPos: mouseY,
-    //         start: true
-    //     });
-    // } else if(end){
-    //     dotArray.push({
-    //         xPos: mouseX,
-    //         yPos: mouseY,
-    //         end: true
-    //     });
-    // } else
-    //     dotArray.push({
-    //         xPos: mouseX,
-    //         yPos: mouseY
-    //     });
-    // if(start || end) {
-    //     start = false
-    //     end = false
-    // }
-    //
-    // console.log("---------------------------------------------------------------")
-    //     console.log({
-    //         xPos: mouseX,
-    //         yPos: mouseY
-    //     })
-    //
-    // // for(let t of dotArray)
-    // //     console.log(t);
+
 }
 
 function keyPressed() {
-    console.log(keyCode)
-    switch (keyCode) {
-        case 13:
-            start = true;
-            break;
-        case 16:
-            end = true;
-            break;
-    }
     return true;
 }
